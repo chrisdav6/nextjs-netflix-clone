@@ -25,7 +25,7 @@ const Home = ({ netflixOriginals }: Props) => {
 
       <Header />
       <main>
-        <Banner />
+        <Banner netflixOriginals={netflixOriginals} />
 
         <section>
           {/* Row */}

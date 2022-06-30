@@ -1,8 +1,9 @@
 import Head from 'next/head';
 import Header from '../components/Header';
-import Banner from '../components/Banner';
 import requests from '../util/requests';
 import { Movie } from '../typings';
+import Banner from '../components/Banner';
+import Row from '../components/Row';
 
 interface Props {
   netflixOriginals: Movie[];
@@ -15,7 +16,16 @@ interface Props {
   documentaries: Movie[];
 }
 
-const Home = ({ netflixOriginals }: Props) => {
+const Home = ({
+  netflixOriginals,
+  trendingNow,
+  topRated,
+  actionMovies,
+  comedyMovies,
+  horrorMovies,
+  romanceMovies,
+  documentaries,
+}: Props) => {
   return (
     <div className='relative h-screen bg-gradient-to-b from-gray-900/10 to-[#010511] lg:h-[140vh]'>
       <Head>
@@ -28,11 +38,14 @@ const Home = ({ netflixOriginals }: Props) => {
         <Banner netflixOriginals={netflixOriginals} />
 
         <section>
-          {/* Row */}
-          {/* Row */}
-          {/* Row */}
-          {/* Row */}
-          {/* Row */}
+          <Row title='Trending Now' movies={trendingNow} />
+          <Row title='Top Rated' movies={topRated} />
+          <Row title='Action Thrillers' movies={actionMovies} />
+          {/* My List */}
+          <Row title='Comedies' movies={comedyMovies} />
+          <Row title='Scary Movies' movies={horrorMovies} />
+          <Row title='Romance Movies' movies={romanceMovies} />
+          <Row title='Documentaries' movies={documentaries} />
         </section>
       </main>
       {/*Modal */}
